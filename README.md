@@ -6,5 +6,7 @@
 
 ## 如何使用
 
-见demo
+        compile 'com.dalong:slidingmenu:1.0.0'
+
+相信见demo
 
