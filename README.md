@@ -2,5 +2,4 @@
   仿探探首页效果,修改slidingmenu源码达到沉浸式菜单的效果。
   
 ## 效果
-图
 ![image](https://github.com/dalong982242260/FangTantan/blob/master/gif/tantan.gif?raw=true)
