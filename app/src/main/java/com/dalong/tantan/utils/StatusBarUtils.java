@@ -10,8 +10,6 @@ import android.view.WindowManager;
 
 /**
  * 自定义状态栏工具类
- *
- * Created by ahq on 15/11/5.
  */
 public class StatusBarUtils {
 

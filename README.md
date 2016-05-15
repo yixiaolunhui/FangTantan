@@ -3,3 +3,8 @@
   
 ## 效果
 ![image](https://github.com/dalong982242260/FangTantan/blob/master/gif/tantan.gif?raw=true)
+
+## 如何使用
+
+见demo
+
