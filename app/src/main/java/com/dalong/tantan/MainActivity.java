@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.dalong.sidemenu.SlidingMenu;
 import com.dalong.sidemenu.lib.SlidingFragmentActivity;
@@ -90,7 +92,6 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         mSlidingMenu.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
             @Override
             public void transformCanvas(Canvas canvas, float percentOpen) {
-                setSlidingMenuIconAlpha(percentOpen,mRightIcon );
             }
         });
 
@@ -127,7 +128,8 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
                 mSlidingMenu.showSecondaryMenu(true);
                 break;
             case R.id.icon_slidingmenu_left:
-                mSlidingMenu.showMenu();
+                Toast.makeText(MainActivity.this,"点击了左面图片",Toast.LENGTH_LONG).show();
+                mSlidingMenu.toggle();
                 break;
         }
     }
@@ -150,4 +152,21 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         int alpha = (int) (alphaPoint * 255);
         mIcon.getBackground().setAlpha(alpha);
     }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                if(mSlidingMenu.isMenuShowing())
+                    break;
+            default:
+                break;
+
+        }
+        return super.onKeyDown(keyCode, event);
+
+    }
+
 }
