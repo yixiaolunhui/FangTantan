@@ -4,10 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/statusbar_view"/>
-    <TextView
-        android:text="主界面"
-        android:textSize="50sp"
-        android:gravity="center"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:context="com.stone.card.MainActivity"
+        tools:ignore="MergeRootFrame" />
 </LinearLayout>

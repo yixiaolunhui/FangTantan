@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dalong.carview.CardFragment;
 import com.dalong.tantan.R;
 
 
@@ -18,7 +19,14 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
     	View view = inflater.inflate(R.layout.sliding_menu_main, container, false);
+         if (savedInstanceState == null) {
+             getActivity().getSupportFragmentManager().beginTransaction()
+                     .add(R.id.container, new CardFragment())
+                     .commitAllowingStateLoss();
+         }
     	return view;
+
+
     }
 
 }

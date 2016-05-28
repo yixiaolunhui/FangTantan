@@ -77,7 +77,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
         mSlidingMenu.setRightMenuOffsetRes(R.dimen.slidingmenu_offset_right);// 设置右边菜单宽度
         mSlidingMenu.setFadeDegree(0.35f);// 设置淡入淡出的比例
         mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);//设置手势模式
-        mSlidingMenu.setTouchModeBehind(SlidingMenu.TOUCHMODE_FULLSCREEN);//设置手势模式
+//        mSlidingMenu.setTouchModeBehind(SlidingMenu.TOUCHMODE_FULLSCREEN);//设置手势模式
         mSlidingMenu.setShadowDrawable(R.color.transparent);// 设置左菜单阴影图片
         mSlidingMenu.setFadeEnabled(true);// 设置滑动时菜单的是否淡入淡出
         mSlidingMenu.setBehindScrollScale(0.333f);// 设置滑动时拖拽效果
@@ -133,6 +133,7 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
                 break;
         }
     }
+
 
     /**
      * 侧边栏滑动时通知

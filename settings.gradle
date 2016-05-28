@@ -1,1 +1,1 @@
-include ':app', ':sidemenu'
+include ':app', ':sidemenu', ':cardview'

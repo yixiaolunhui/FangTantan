@@ -25,5 +25,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile project(':sidemenu')
     compile 'de.hdodenhof:circleimageview:2.0.0'
-
+    compile 'com.github.devlight.navigationtabstrip:library:1.0.1'
+    compile project(':cardview')
 }

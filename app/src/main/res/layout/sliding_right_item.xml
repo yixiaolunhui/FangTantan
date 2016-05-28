@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.gigamole.library.navigationtabstrip.NavigationTabStrip
+        android:id="@+id/menu_right_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:nts_color="@color/colorAccent"
+        app:nts_size="15sp"
+        app:nts_weight="3dp"
+        app:nts_factor="2.5"
+        app:nts_type="line"
+        app:nts_gravity="bottom"
+        app:nts_typeface="fonts/typeface.otf"
+        app:nts_animation_duration="300"
+        app:nts_active_color="@color/white"
+        app:nts_inactive_color="#c4c4c4"/>
+    <android.support.v4.view.ViewPager
+        android:clickable="true"
+        android:id="@+id/menu_right_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
