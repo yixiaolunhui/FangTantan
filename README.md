@@ -13,5 +13,7 @@
 ## 用到的库
 
 https://github.com/xmuSistone/android-card-slide-panel
+
 https://github.com/DevLight-Mobile-Agency/NavigationTabStrip
+
 https://github.com/hdodenhof/CircleImageView
