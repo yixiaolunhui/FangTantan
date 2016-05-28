@@ -8,5 +8,6 @@
     <color name="title_bar">#d34530</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+    <color name="menu_left_tv">#444444</color>
 
 </resources>

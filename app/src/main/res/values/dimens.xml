@@ -5,4 +5,8 @@
 
     <dimen name="slidingmenu_offset_left">75dp</dimen>
     <dimen name="slidingmenu_offset_right">75dp</dimen>
+
+    <dimen name="slidingmenu_left_height">60dp</dimen>
+    <dimen name="slidingmenu_left_text">20sp</dimen>
+    <dimen name="slidingmenu_left_padding">18sp</dimen>
 </resources>

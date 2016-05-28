@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingBottom="10dp"
+    android:layout_gravity="bottom"
+    android:gravity="bottom"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:id="@+id/menu_left_grop"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <RadioButton
+                android:id="@+id/menu_left_item1"
+                android:text="@string/menu_left_item1"
+                android:drawablePadding="@dimen/slidingmenu_left_padding"
+                android:textSize="@dimen/slidingmenu_left_text"
+                android:drawableLeft="@mipmap/menu_left_item1"
+                android:layout_width="match_parent"
+                android:button="@null"
+                android:layout_height="@dimen/slidingmenu_left_height" />
+            <RadioButton
+                android:id="@+id/menu_left_item2"
+                android:text="@string/menu_left_item2"
+                android:drawablePadding="@dimen/slidingmenu_left_padding"
+                android:textSize="@dimen/slidingmenu_left_text"
+                android:drawableLeft="@mipmap/menu_left_item2"
+                android:layout_width="match_parent"
+                android:button="@null"
+                android:layout_height="@dimen/slidingmenu_left_height" />
+            <RadioButton
+                android:id="@+id/menu_left_item3"
+                android:text="@string/menu_left_item3"
+                android:drawablePadding="@dimen/slidingmenu_left_padding"
+                android:textSize="@dimen/slidingmenu_left_text"
+                android:drawableLeft="@mipmap/menu_left_item3"
+                android:layout_width="match_parent"
+                android:button="@null"
+                android:layout_height="@dimen/slidingmenu_left_height" />
+            <RadioButton
+                android:id="@+id/menu_left_item4"
+                android:text="@string/menu_left_item4"
+                android:drawablePadding="@dimen/slidingmenu_left_padding"
+                android:textSize="@dimen/slidingmenu_left_text"
+                android:drawableLeft="@mipmap/menu_left_item4"
+                android:layout_width="match_parent"
+                android:button="@null"
+                android:layout_height="@dimen/slidingmenu_left_height" />
+            <RadioButton
+                android:id="@+id/menu_left_item5"
+                android:text="@string/menu_left_item5"
+                android:drawablePadding="@dimen/slidingmenu_left_padding"
+                android:textSize="@dimen/slidingmenu_left_text"
+                android:drawableLeft="@mipmap/menu_left_item5"
+                android:layout_width="match_parent"
+                android:button="@null"
+                android:layout_height="@dimen/slidingmenu_left_height" />
+            <RadioButton
+                android:id="@+id/menu_left_item6"
+                android:text="@string/menu_left_item6"
+                android:drawablePadding="@dimen/slidingmenu_left_padding"
+                android:textSize="@dimen/slidingmenu_left_text"
+                android:drawableLeft="@mipmap/menu_left_item6"
+                android:layout_width="match_parent"
+                android:button="@null"
+                android:layout_height="@dimen/slidingmenu_left_height" />
+
+
+        </RadioGroup>
+    </ScrollView>
+</LinearLayout>

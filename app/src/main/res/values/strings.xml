@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">FangTantan</string>
     <string name="title_name">探探</string>
+
+
+
+    <string name="menu_left_item1">探探</string>
+    <string name="menu_left_item2">消息</string>
+    <string name="menu_left_item3">匿名暗恋表白</string>
+    <string name="menu_left_item4">设置</string>
+    <string name="menu_left_item5">新手引导</string>
+    <string name="menu_left_item6">推荐给好友</string>
 </resources>
