@@ -6,8 +6,8 @@ package com.dalong.carview;
  * @author xmuSistone
  */
 public class CardDataItem {
-    String imagePath;
-    String userName;
-    int likeNum;
-    int imageNum;
+    public String imagePath;
+    public String userName;
+    public int likeNum;
+    public int imageNum;
 }

@@ -170,4 +170,11 @@ public class MainActivity extends SlidingFragmentActivity implements View.OnClic
 
     }
 
+
+    public void addIgnoredView(View addIgnoredView){
+        mSlidingMenu.addIgnoredView(addIgnoredView);
+    }
+    public void removeIgnoredView(View addIgnoredView){
+        mSlidingMenu.removeIgnoredView(addIgnoredView);
+    }
 }

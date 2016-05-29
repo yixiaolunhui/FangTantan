@@ -46,22 +46,26 @@
             </LinearLayout>
 
             <com.dalong.carview.CardItemView
-                android:layout_width="wrap_content"
+                android:id="@+id/carview1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal" />
 
             <com.dalong.carview.CardItemView
-                android:layout_width="wrap_content"
+                android:id="@+id/carview2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal" />
 
             <com.dalong.carview.CardItemView
-                android:layout_width="wrap_content"
+                android:id="@+id/carview3"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal" />
 
             <com.dalong.carview.CardItemView
-                android:layout_width="wrap_content"
+                android:id="@+id/carview4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal" />
 

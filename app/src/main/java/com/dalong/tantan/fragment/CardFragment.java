@@ -1,7 +1,8 @@
-package com.dalong.carview;
+package com.dalong.tantan.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,13 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.dalong.carview.CardDataItem;
+import com.dalong.carview.CardSlidePanel;
+import com.dalong.tantan.MainActivity;
+import com.dalong.tantan.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 卡片Fragment
  *
- * @author xmuSistone
  */
 @SuppressLint({"HandlerLeak", "NewApi", "InflateParams"})
 public class CardFragment extends Fragment {
@@ -41,18 +46,19 @@ public class CardFragment extends Fragment {
             "王祖蓝", "王宝强", "黄晓明", "张卫健", "徐峥", "李亚鹏", "郑伊健"}; // 24个人名
 
     private List<CardDataItem> dataList = new ArrayList<CardDataItem>();
+    public  CardSlidePanel slidePanel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.card_layout, null);
+        View rootView = inflater.inflate(com.dalong.carview.R.layout.card_layout, null);
         initView(rootView);
         return rootView;
     }
 
     private void initView(View rootView) {
-        CardSlidePanel slidePanel = (CardSlidePanel) rootView
-                .findViewById(R.id.image_slide_panel);
+        slidePanel = (CardSlidePanel) rootView
+                .findViewById(com.dalong.carview.R.id.image_slide_panel);
         cardSwitchListener = new CardSlidePanel.CardSwitchListener() {
 
             @Override
@@ -68,6 +74,10 @@ public class CardFragment extends Fragment {
             @Override
             public void onItemClick(View cardView, int index) {
                 Log.d("CardFragment", "卡片点击-" + dataList.get(index).userName);
+            }
+
+            @Override
+            public void onViewPosition(float dx, float dy) {
             }
         };
         slidePanel.setCardSwitchListener(cardSwitchListener);
@@ -96,4 +106,26 @@ public class CardFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        addIgnoredView(view.findViewById(R.id.carview1));
+        addIgnoredView(view.findViewById(R.id.carview2));
+        addIgnoredView(view.findViewById(R.id.carview3));
+        addIgnoredView(view.findViewById(R.id.carview4));
+        removeIgnoredView(view.findViewById(R.id.card_bottom_layout));
+    }
+
+    public void addIgnoredView(View view){
+        MainActivity main=(MainActivity)getActivity();
+        if(view!=null){
+            main.addIgnoredView(slidePanel);
+        }
+    }
+    public void removeIgnoredView(View view){
+        MainActivity main=(MainActivity)getActivity();
+        if(view!=null){
+            main.removeIgnoredView(slidePanel);
+        }
+    }
 }

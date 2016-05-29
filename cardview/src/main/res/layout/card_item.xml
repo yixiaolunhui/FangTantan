@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/card_image_view"
             android:layout_width="fill_parent"
-            android:layout_height="260dp"
+            android:layout_height="300dp"
             android:scaleType="fitXY" />
 
         <TextView
@@ -31,6 +31,22 @@
             android:paddingRight="4dp"
             android:text="6"
             android:textColor="#fff" />
+
+        <ImageView
+            android:id="@+id/card_like_icon"
+            android:src="@drawable/card_like"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/card_dislike_icon"
+            android:src="@drawable/card_dislike"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     <LinearLayout

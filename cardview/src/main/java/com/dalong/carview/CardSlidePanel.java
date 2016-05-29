@@ -151,6 +151,9 @@ public class CardSlidePanel extends ViewGroup {
         @Override
         public void onViewPositionChanged(View changedView, int left, int top,
                                           int dx, int dy) {
+            if(cardSwitchListener!=null){
+                cardSwitchListener.onViewPosition(changedView.getX(),changedView.getY());
+            }
             // 调用offsetLeftAndRight导致viewPosition改变，会调到此处，所以此处对index做保护处理
             int index = viewList.indexOf(changedView);
             if (index + 2 > viewList.size()) {
@@ -287,6 +290,7 @@ public class CardSlidePanel extends ViewGroup {
 
         ajustLinkageViewItem(changedView, rate1, 1);
         ajustLinkageViewItem(changedView, rate2, 2);
+
     }
 
     // 由index对应view变成index-1对应的view
@@ -546,7 +550,20 @@ public class CardSlidePanel extends ViewGroup {
             itemView.fillData(dataList.get(currentIndex++));
         }
     }
-
+    public void setIconAlpha(float percentOpen,ImageView mIcon) {
+        if(mIcon == null) {
+            return;
+        }
+        float alphaPoint = 1 - percentOpen;
+        if(alphaPoint < 0.0f) {
+            alphaPoint = 0.0f;
+        } else if(alphaPoint > 1.0f) {
+            alphaPoint = 1.0f;
+        }
+        int alpha = (int) (alphaPoint * 255);
+        if(mIcon!=null)
+            mIcon.getBackground().setAlpha(alpha);
+    }
     /**
      * 设置卡片操作回调
      *
@@ -582,5 +599,8 @@ public class CardSlidePanel extends ViewGroup {
          * @param index         点击到的index
          */
         public void onItemClick(View cardImageView, int index);
+
+
+        public void onViewPosition(float dx, float dy);
     }
 }

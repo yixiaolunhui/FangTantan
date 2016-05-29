@@ -46,6 +46,8 @@ public class RightFragment extends Fragment{
 		mViewpager.setAdapter(adapter);
 		mItemTab.setTitles("所有配对","聊天");
 		mItemTab.setViewPager(mViewpager);
+		MainActivity mainActivity=(MainActivity)getActivity();
+		mainActivity.addIgnoredView(mViewpager);
 	}
 
 

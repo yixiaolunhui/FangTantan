@@ -16,6 +16,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 @SuppressLint("NewApi")
 public class CardItemView extends LinearLayout {
 
+    public  ImageView dislikeIcon;
+    public  ImageView likeIcon;
     public ImageView imageView;
     private TextView userNameTv;
     private TextView imageNumTv;
@@ -36,6 +38,8 @@ public class CardItemView extends LinearLayout {
         userNameTv = (TextView) findViewById(R.id.card_user_name);
         imageNumTv = (TextView) findViewById(R.id.card_pic_num);
         likeNumTv = (TextView) findViewById(R.id.card_like);
+        likeIcon = (ImageView) findViewById(R.id.card_like_icon);
+        dislikeIcon = (ImageView) findViewById(R.id.card_dislike_icon);
     }
 
     public void fillData(CardDataItem itemData) {
@@ -44,4 +48,6 @@ public class CardItemView extends LinearLayout {
         imageNumTv.setText(itemData.imageNum + "");
         likeNumTv.setText(itemData.likeNum + "");
     }
+
+
 }
