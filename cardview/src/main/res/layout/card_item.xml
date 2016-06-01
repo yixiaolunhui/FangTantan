@@ -36,7 +36,7 @@
             android:id="@+id/card_like_icon"
             android:src="@drawable/card_like"
             android:layout_margin="10dp"
-            android:visibility="gone"
+            android:alpha="0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
@@ -44,7 +44,7 @@
             android:src="@drawable/card_dislike"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"
-            android:visibility="gone"
+            android:alpha="0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>

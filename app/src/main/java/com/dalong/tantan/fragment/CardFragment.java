@@ -2,6 +2,7 @@ package com.dalong.tantan.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 import com.dalong.carview.CardDataItem;
 import com.dalong.carview.CardSlidePanel;
@@ -62,13 +62,25 @@ public class CardFragment extends Fragment {
         cardSwitchListener = new CardSlidePanel.CardSwitchListener() {
 
             @Override
-            public void onShow(int index) {
+            public void onShow(View cardView,int index) {
+                cardView.findViewById(R.id.card_like_icon).setAlpha(0);
+                cardView.findViewById(R.id.card_dislike_icon).setAlpha(0);
                 Log.d("CardFragment", "正在显示-" + dataList.get(index).userName);
             }
 
             @Override
-            public void onCardVanish(int index, int type) {
+            public void onCardVanish(View changedView,int index, int type) {
                 Log.d("CardFragment", "正在消失-" + dataList.get(index).userName + " 消失type=" + type);
+                switch (type){
+                    case 0:
+                        Log.d("CardFragment", "不喜欢" );
+                        setViewPressed(getActivity().findViewById(R.id.card_left_btn),200);
+                        break;
+                    case 1:
+                        Log.d("CardFragment", "喜欢" );
+                        setViewPressed(getActivity().findViewById(R.id.card_right_btn),200);
+                        break;
+                }
             }
 
             @Override
@@ -77,7 +89,9 @@ public class CardFragment extends Fragment {
             }
 
             @Override
-            public void onViewPosition(float dx, float dy) {
+            public void onViewPosition(View changedView,float dx, float dy) {
+                changedView.findViewById(R.id.card_like_icon).setAlpha(dx);
+                changedView.findViewById(R.id.card_dislike_icon).setAlpha(dy);
             }
         };
         slidePanel.setCardSwitchListener(cardSwitchListener);
@@ -89,6 +103,17 @@ public class CardFragment extends Fragment {
                 return false;
             }
         });
+    }
+
+    public  void setViewPressed(final View view,long time){
+        view.setPressed(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view.setPressed(false);
+            }
+        },time);
+
     }
 
     private void prepareDataList() {

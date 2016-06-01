@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
@@ -152,7 +153,10 @@ public class CardSlidePanel extends ViewGroup {
         public void onViewPositionChanged(View changedView, int left, int top,
                                           int dx, int dy) {
             if(cardSwitchListener!=null){
-                cardSwitchListener.onViewPosition(changedView.getX(),changedView.getY());
+                Log.v("909090","changedView.getLeft():"+changedView.getLeft());
+                float x=(changedView.getRight()-initCenterViewX-changedView.getMeasuredWidth()/2)/((float)changedView.getMeasuredWidth()/2)-1;
+                float y=(initCenterViewX-changedView.getLeft())/((float)changedView.getMeasuredWidth()/2);
+                cardSwitchListener.onViewPosition( changedView,x,y);
             }
             // 调用offsetLeftAndRight导致viewPosition改变，会调到此处，所以此处对index做保护处理
             int index = viewList.indexOf(changedView);
@@ -195,6 +199,8 @@ public class CardSlidePanel extends ViewGroup {
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
             animToSide(releasedChild, xvel, yvel);
+            releasedChild.findViewById(R.id.card_like_icon).setAlpha(0);
+            releasedChild.findViewById(R.id.card_dislike_icon).setAlpha(0);
         }
 
         @Override
@@ -258,7 +264,7 @@ public class CardSlidePanel extends ViewGroup {
                 isShowing++;
             }
             if (null != cardSwitchListener) {
-                cardSwitchListener.onShow(isShowing);
+                cardSwitchListener.onShow(viewList.get(viewList.size()-1),isShowing);
             }
         }
     }
@@ -306,6 +312,8 @@ public class CardSlidePanel extends ViewGroup {
         float scale = initScale + (nextScale - initScale) * rate;
 
         View ajustView = viewList.get(changeIndex + index);
+        ajustView.findViewById(R.id.card_dislike_icon).setAlpha(0);
+        ajustView.findViewById(R.id.card_like_icon).setAlpha(0);
         ajustView.offsetTopAndBottom(offset - ajustView.getTop()
                 + initCenterViewY);
         ajustView.setScaleX(scale);
@@ -360,7 +368,7 @@ public class CardSlidePanel extends ViewGroup {
 
         // 3. 消失动画即将进行，listener回调
         if (flyType >= 0 && cardSwitchListener != null) {
-            cardSwitchListener.onCardVanish(isShowing, flyType);
+            cardSwitchListener.onCardVanish(changedView,isShowing, flyType);
         }
     }
 
@@ -389,7 +397,7 @@ public class CardSlidePanel extends ViewGroup {
             }
 
             if (type >= 0 && cardSwitchListener != null) {
-                cardSwitchListener.onCardVanish(isShowing, type);
+                cardSwitchListener.onCardVanish(animateView,isShowing, type);
             }
         }
     }
@@ -529,7 +537,7 @@ public class CardSlidePanel extends ViewGroup {
         }
 
         if (null != cardSwitchListener) {
-            cardSwitchListener.onShow(0);
+            cardSwitchListener.onShow(viewList.get(0),0);
         }
     }
 
@@ -582,7 +590,7 @@ public class CardSlidePanel extends ViewGroup {
          *
          * @param index 最顶层显示的卡片的index
          */
-        public void onShow(int index);
+        public void onShow(View animateView,int index);
 
         /**
          * 卡片飞向两侧回调
@@ -590,7 +598,7 @@ public class CardSlidePanel extends ViewGroup {
          * @param index 飞向两侧的卡片数据index
          * @param type  飞向哪一侧{@link #VANISH_TYPE_LEFT}或{@link #VANISH_TYPE_RIGHT}
          */
-        public void onCardVanish(int index, int type);
+        public void onCardVanish(View animateView,int index, int type);
 
         /**
          * 卡片点击事件
@@ -601,6 +609,6 @@ public class CardSlidePanel extends ViewGroup {
         public void onItemClick(View cardImageView, int index);
 
 
-        public void onViewPosition(float dx, float dy);
+        public void onViewPosition(View changedView,float dx, float dy);
     }
 }

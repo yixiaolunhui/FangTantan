@@ -19,9 +19,9 @@ public class CardItemView extends LinearLayout {
     public  ImageView dislikeIcon;
     public  ImageView likeIcon;
     public ImageView imageView;
-    private TextView userNameTv;
-    private TextView imageNumTv;
-    private TextView likeNumTv;
+    public TextView userNameTv;
+    public TextView imageNumTv;
+    public TextView likeNumTv;
 
     public CardItemView(Context context) {
         this(context, null);
